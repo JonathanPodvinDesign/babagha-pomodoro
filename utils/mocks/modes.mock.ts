@@ -9,14 +9,18 @@ export const MODES_MOCK: Mode[] = [
     name: "Pomodoro",
     description: "25/5",
     image: pomodoroImg,
-    backgroundColor: "#FA6E5A",
+    backgroundColor: "#6CB28E",
+    time: 25,
+    breakTime: 5,
   },
   {
     id: 2,
     name: "Endurance",
     description: "50/10",
     image: enduranceImg,
-    backgroundColor: "#6CB28E",
+    backgroundColor: "#FA6E5A",
+    time: 50,
+    breakTime: 10,
   },
   {
     id: 3,
@@ -24,5 +28,7 @@ export const MODES_MOCK: Mode[] = [
     description: "90/20",
     image: focusImg,
     backgroundColor: "#D9A5B5",
+    time: 90,
+    breakTime: 20,
   },
 ];

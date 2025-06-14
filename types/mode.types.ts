@@ -4,4 +4,6 @@ export type Mode = {
   description: string;
   image: string;
   backgroundColor: string;
+  time: number;
+  breakTime: number;
 };

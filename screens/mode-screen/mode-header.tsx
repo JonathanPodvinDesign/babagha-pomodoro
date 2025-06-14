@@ -1,9 +1,9 @@
 import { StyleProp, StyleSheet, Text, View, ViewStyle } from "react-native";
-import Button from "./button";
 import { LucideIcon } from "lucide-react-native";
 import { RelativePathString, useRouter } from "expo-router";
+import Button from "@/components/button";
 
-interface HeaderProps {
+interface ModeHeaderProps {
   title?: string;
   button?: {
     icon?: LucideIcon | undefined;
@@ -18,7 +18,7 @@ interface HeaderProps {
  * @param props - HeaderProps
  * @returns Header component
  */
-export default function Header(props: HeaderProps) {
+export default function ModeHeader(props: ModeHeaderProps) {
   const router = useRouter();
 
   // If button is provided, render the button and the title

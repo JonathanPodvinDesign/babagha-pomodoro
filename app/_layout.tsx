@@ -5,13 +5,13 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import { Text } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import { useColorScheme } from "@/components/useColorScheme";
+import { useColorScheme } from "@/screens/useColorScheme";
 import {
   Poppins_200ExtraLight,
   Poppins_200ExtraLight_Italic,
@@ -26,6 +26,8 @@ import {
   Poppins_700Bold,
   Poppins_700Bold_Italic,
 } from "@expo-google-fonts/poppins";
+import ModeListScreen from "@/screens/mode-list-screen/mode-list-screen";
+import ModeScreen from "@/screens/mode-screen/mode-screen";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -69,20 +71,29 @@ export default function RootLayout() {
     }
   }, [loaded]);
 
-  if (!loaded) return <Text>Loading...</Text>;
+  if (!loaded) return <Text>Chargement...</Text>;
 
   return <RootLayoutNav />;
 }
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
+  const Stack = createStackNavigator();
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="(mode)/[id]" options={{ headerShown: false }} />
-      </Stack>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="ModeList"
+          component={ModeListScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ModeScreen"
+          component={ModeScreen}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
     </ThemeProvider>
   );
 }

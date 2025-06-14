@@ -5,7 +5,7 @@ import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
-import ModesList from "./(mode)/mode-list";
+import ModesList from "../app/(mode)/mode-list";
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
